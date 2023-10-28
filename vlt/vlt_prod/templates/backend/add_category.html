@@ -1,0 +1,56 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block body_content %}
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-11">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Add New Category</h1>
+                        </div>
+                        <form class="user">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        placeholder="Category Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="date" class="form-control form-control-user" id="abc"
+                                        placeholder="date ">
+                                </div>
+                            </div>
+                            
+                            <a href="" id="add_button" class="btn btn-primary btn-user btn-block">
+                                Add Category
+                            </a>
+                      
+                           
+                        </form>
+                        <hr>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    <script>
+    $('#add_button').click(function(e){
+        var cname = $('#exampleFirstName').val();
+        e.preventDefault()
+        console.log(cname);
+        $.ajax({
+        url: "/backend/addcategory",
+        method:POST,
+        cache: false,
+        success: function(html){
+            alert("Please Enter user name")
+        }
+        });
+    });
+    </script>
+{% endblock body_content %}
